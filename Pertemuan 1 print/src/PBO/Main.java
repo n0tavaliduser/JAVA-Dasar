@@ -30,7 +30,7 @@ public class Main {
 
         // 1 contoh atribut
         String kota = "Nama Kota"; // --> nilai String dengan semarang (lowercase)
-        int kodePos = 11111; // --> Masih dalam range tipe data integer
+        int kodePos = 11112; // --> Masih dalam range tipe data integer
 
         // Tugas menampilkan data pribadi
         System.out.printf("NIM\t\t\t: %s \n","-");
