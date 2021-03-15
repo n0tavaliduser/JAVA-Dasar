@@ -1,0 +1,20 @@
+package PBO;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // 1 contoh atribut
+        String kota = "semarang"; // --> nilai String dengan semarang (lowercase)
+        int kodePos = 50172; // --> Masih dalam range tipe data integer
+
+        // Tugas menampilkan data pribadi
+        System.out.printf("NIM\t\t\t: %s \n","A11.2019.11831"); // -->
+        System.out.printf("Nama\t\t: Stevano Titondea Prayoga Putra\n");
+        System.out.printf("Alamat\t\t: Jl. Patriot 2 no H-53 Purwosari, Semarang Utara\n");
+        System.out.printf("Kota\t\t: %S",kota); // --> format variabel dengan %S String uppercase
+        System.out.printf("\nKode Pos\t: %d\n",kodePos);
+        System.out.printf("Telp\t\t: - \n");
+        System.out.printf("Hp\t\t\t: 082278834034\n");
+        System.out.printf("Email\t\t: stevanoputra38@gmail.com\n");
+    }
+}

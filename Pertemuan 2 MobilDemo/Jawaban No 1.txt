@@ -1,0 +1,100 @@
+import java.lang.InterruptedException;
+import java.io.IOException;
+import java.util.Scanner;
+
+class Mobil2 {
+    int machine = 0,gigi = 0;
+    public void hidupkanMesin(){
+        machine+=1;
+    }
+    public void matikanMesin(){
+        if (gigi != 0){
+            System.out.println("masukan ke gigi netral lalu matikan");
+            promptEnterKey();
+        }else{
+            machine-=1;
+        }
+    }
+    public void ubahGigi(){
+        Scanner gigiKendaraan = new Scanner(System.in);
+        System.out.println("1. Naikan gigi");
+        System.out.println("2. Turunkan gigi");
+        String upDown = gigiKendaraan.next();
+        switch (upDown){
+            case "1" :
+                if (gigi < 6){
+                    gigi+=1;
+                }else{
+                    break;
+                }
+                break;
+            case "2" :
+                if (gigi > -1){
+                    gigi-=1;
+                }else{
+                    break;
+                }
+                break;
+        }
+    }
+    public void promptEnterKey(){
+        System.out.println("Press \"ENTER\" to continue...");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+    }
+}
+public class MobilDemo2 {
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+        Mobil2 mobilSaya = new Mobil2();
+        Scanner userInput = new Scanner(System.in);
+        while(true){
+
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+            String gigiEncoder = "";
+            if (mobilSaya.gigi == 0){
+                gigiEncoder = "N";
+            }else if(mobilSaya.gigi == -1){
+                gigiEncoder = "R";
+            }else{
+                gigiEncoder = String.valueOf(mobilSaya.gigi);
+            }
+
+            System.out.println("===========================");
+            switch (mobilSaya.machine){
+                case 0 :
+                    System.out.println("Mesin --> Mati");
+                    break;
+                case 1 :
+                    System.out.println("Mesin --> Hidup" + "|" + " Gigi --> " + gigiEncoder);
+            }
+            System.out.println("===========================");
+            System.out.println("1. Nyalakan Mesin");
+            System.out.println("2. Matikan Mesin");
+            System.out.println("3. Ubah Gigi");
+            System.out.println("0. Exit");
+            System.out.print("Choose --> ");
+            String choose = userInput.next();
+            switch(choose){
+                case "1" :
+                    mobilSaya.hidupkanMesin();
+                    break;
+                case "2" :
+                    mobilSaya.matikanMesin();
+                    break;
+                case "3" :
+                    if (mobilSaya.machine == 0){
+                        System.out.println("Mobil masih dalam keadaan mati");
+                        mobilSaya.promptEnterKey();
+                    }else{
+                        mobilSaya.ubahGigi();
+                    }
+                    break;
+                case "0" :
+                    System.exit(0);
+            }
+        }
+    }
+}

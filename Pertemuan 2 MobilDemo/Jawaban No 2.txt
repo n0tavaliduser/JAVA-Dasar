@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+class daftarNilai {
+    float nilaiUts, nilaiTugas, nilaiUas, pNilaiUts = 0.2f, pNilaiTugas = 0.35f, pNilaiUas = 0.45f;;
+    public void hitungNilai(){
+        Main nilai = new Main();
+        float nilaiAkhir = nilaiUts*pNilaiUts + nilaiTugas*pNilaiTugas + nilaiUas*pNilaiUas;
+        System.out.print("Nilai akhir\t\t: " + nilaiAkhir);
+    }
+}
+public class Main {
+
+    public static void main(String[] args) {
+
+        daftarNilai inputNilai = new daftarNilai();
+        String nim, nama;
+        float nilaiUts, nilaiTugas, nilaiUas, pNilaiUts;
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.print("Nim\t\t\t\t: ");
+        nim = userInput.next();
+        System.out.print("Nama\t\t\t: ");
+        nama = userInput.next();
+        nama+=userInput.nextLine();
+        System.out.print("Nilai UTS\t\t: ");
+        inputNilai.nilaiUts = userInput.nextFloat();
+        System.out.print("Nilai Tugas\t\t: ");
+        inputNilai.nilaiTugas = userInput.nextFloat();
+        System.out.print("Nilai UAS\t\t: ");
+        inputNilai.nilaiUas = userInput.nextFloat();
+
+        System.out.println("============OUTPUT============");
+        System.out.println("Nim\t\t\t\t: " + nim);
+        System.out.println("Nama\t\t\t: " + nama);
+        System.out.println("Nilai UTS\t\t: " + inputNilai.nilaiUts + "20%" + " : " + inputNilai.nilaiUts*inputNilai.pNilaiUts);
+        System.out.println("Nilai Tugas\t\t: " + inputNilai.nilaiTugas + "35%" + " : " + inputNilai.nilaiTugas*inputNilai.pNilaiTugas);
+        System.out.println("Nilai UAS\t\t: " + inputNilai.nilaiUas + "45%" + " : " + inputNilai.nilaiUas*inputNilai.pNilaiUas);
+        inputNilai.hitungNilai();;
+    }
+}
